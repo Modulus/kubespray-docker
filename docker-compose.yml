@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  kube-spray:
+    build: .
+    configs:
+      - source: inventory
+        type: bind
+        target: /kubespray/inventory/local/hosts.ini
+    command: cat /kubespray/inventory/local/hosts.ini
+configs:
+  inventory:
+    file: "./inventory.ini"
