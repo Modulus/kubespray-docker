@@ -6,7 +6,12 @@ services:
       - source: inventory
         type: bind
         target: /kubespray/inventory/local/hosts.ini
-    command: cat /kubespray/inventory/local/hosts.ini
+      - source: ssh
+        type: bind
+        target: /root/.ssh/id_rsa
+    command: cat /kubespray/inventory/local/hosts.ini && cat /root/.ssh/id_rsa
 configs:
   inventory:
     file: "./inventory.ini"
+  ssh:
+    file: "~/.ssh/id_rsa"

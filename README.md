@@ -1,11 +1,15 @@
 # Run it
 
-1. docker build kubespray .
+1. docker build -t kubespray .
 2. docker run --mount type=bind,source=$(pwd)/inventory.ini,target=/kubespray/inventory/local/hosts.ini kubespray ansible-playbook -i inventory/local/hosts.ini --become --become-user=root cluster.yml
 
 ## If you require sudo pass
-1.  docker run --mount type=bind,source=$(pwd)/inventory.ini,target=/kubespray/inventory/local/hosts.ini kubespray ansible-playbook -i inventory/local/hosts.ini --become --become-user=root --ask-become-pass cluster.yml
+1.  docker run --mount type=bind,source=$(pwd)/inventory.ini,target=/kubespray/inventory/local/hosts.ini --mount type=bind,source=$(echo ~)/.ssh/id_rsa,target=/root/.ssh/id_rsa kubespray ansible-playbook -i inventory/local/hosts.ini --become --become-user=root --ask-become-pass cluster.yml
 
+## Interaktiv
+1. docker run -it --mount type=bind,source=$(pwd)/inventory.ini,target=/kubespray/inventory/local/hosts.ini --mount type=bind,source=$(echo ~)/.ssh/id_rsa,target=/root/.ssh/id_rsa kubespray bash
+
+2. ansible-playbook -i inventory/local/hosts.ini --become --become-user=root --ask-become-pass cluster.yml
 
 ## Documentation
 https://kubespray.io/#/
