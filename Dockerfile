@@ -3,8 +3,7 @@ FROM python:3.7
 
 WORKDIR /
 
-RUN git clone https://github.com/kubernetes-sigs/kubespray.git # && ssh-keygen -t rsa -N "" -f ~/.ssh/dead_key
-
+RUN git clone https://github.com/kubernetes-sigs/kubespray.git 
 WORKDIR /kubespray
 
 

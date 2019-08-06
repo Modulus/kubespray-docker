@@ -8,8 +8,10 @@
 
 ## Interaktiv
 1. docker run -it --mount type=bind,source=$(pwd)/inventory.ini,target=/kubespray/inventory/local/hosts.ini --mount type=bind,source=$(echo ~)/.ssh/id_rsa,target=/root/.ssh/id_rsa kubespray bash
-
-2. ansible-playbook -i inventory/local/hosts.ini --become --become-user=root --ask-become-pass cluster.yml
+2. eval "$(ssh-agent -s)" 
+3. ssh-add
+4. ansible -i inventory/local/hosts.ini all -m ping
+5. ansible-playbook -i inventory/local/hosts.ini --become --become-user=root --ask-become-pass cluster.yml
 
 ## Documentation
 https://kubespray.io/#/
