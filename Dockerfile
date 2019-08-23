@@ -8,7 +8,7 @@ WORKDIR /kubespray
 
 
 
-RUN git checkout v2.10.4 && rm /kubespray/inventory/local/hosts.ini
+RUN git checkout v2.11.0 && rm /kubespray/inventory/local/hosts.ini
 
 VOLUME ["/kubespray/inventory/local", "/root/.ssh"]
 
