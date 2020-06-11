@@ -4,7 +4,7 @@
 dashboard_enabled: true
 
 # Helm deployment
-helm_enabled: true
+helm_enabled: false
 
 # Registry deployment
 registry_enabled: false
@@ -76,7 +76,7 @@ rbd_provisioner_enabled: false
 # rbd_provisioner_reclaim_policy: Delete
 
 # Nginx ingress controller deployment
-ingress_nginx_enabled: true
+ingress_nginx_enabled: false
 # ingress_nginx_host_network: false
 # ingress_nginx_nodeselector:
 #   beta.kubernetes.io/os: "linux": ""
